@@ -1,7 +1,6 @@
 package com.example.covid_19;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -41,8 +40,3 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 }
-/*
-        intent = new Intent(MainActivity.this, MainActivity2.class);
-        string = "First book description ";
-        intent.putExtra("Value",string);
-*/

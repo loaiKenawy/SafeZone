@@ -1,14 +1,13 @@
 package com.example.covid_19;
 
-import com.google.firebase.database.DatabaseReference;
-
 public class User {
-
-
 
     private int  age;
 
-    private String firstName , lastName, emailAddress , password;
+    private String firstName , lastName, phoneNumber, password ;
+
+    boolean Positive;
+
 
 
     public void setAge(int age) {
@@ -23,64 +22,33 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
-    
 
-    public int getAge() {
-        return age;
+    public void setPositive(boolean positive) {
+        this.Positive = positive;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void Register(String fName , String lName , String email, String inPassword ,int age){
+    public void Register(String fName , String lName , String email, String inPassword , int age , boolean status){
 
             setFirstName(fName);
 
             setLastName(lName);
 
-            setEmailAddress(email);
+            setPhoneNumber(email);
 
             setPassword(inPassword);
 
             setAge(age);
 
-
-
-
+            setPositive(status);
     }
-    public int login(String email , String inPassword) {
 
-        if (email.equals(getEmailAddress()) && inPassword.equals(getPassword())) {
-            return 1;
-
-        } else if (email.isEmpty() || inPassword.isEmpty()) {
-
-            return 0;
-        }
-        else
-            return -1;
-
-    }
 }
 
 

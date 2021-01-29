@@ -30,9 +30,7 @@ public class loginActivity extends AppCompatActivity {
     TextView askForRegister;
     Button loginButton;
     EditText lEmail , lPassword;
-    User user1 = new User();
     Intent intent ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,18 +66,27 @@ public class loginActivity extends AppCompatActivity {
                      String DBPassword = snapshot.child("password").getValue().toString();
 
                     if(password.equals(DBPassword)){
+
+                        String  fName ,lName ,Status;
+                        fName = snapshot.child("firstName").getValue().toString();
+                        lName = snapshot.child("lastName").getValue().toString();
+                        Status = snapshot.child("Status").getValue().toString();
+
                       intent = new Intent(loginActivity.this,HomePage.class);
+                      intent.putExtra("fName",fName);
+                      intent.putExtra("lName",lName);
+                      intent.putExtra("Status",Status);
                       startActivity(intent);
                     }
                     else if(DBPassword == null){
                         Toast.makeText(loginActivity.this,"DATABASE ERROR",Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(loginActivity.this,DBPassword,Toast.LENGTH_LONG).show();
+                        Toast.makeText(loginActivity.this,"Wrong Password",Toast.LENGTH_LONG).show();
                     }
 
                 }else{
-                    Toast.makeText(loginActivity.this,"Wrong email address",Toast.LENGTH_LONG).show();
+                    Toast.makeText(loginActivity.this,"Wrong Phone number",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -118,7 +125,6 @@ public class loginActivity extends AppCompatActivity {
         ss.setSpan(clickableSpan1,22,30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         askForRegister.setText(ss);
         askForRegister.setMovementMethod(LinkMovementMethod.getInstance());
-
     }
 
 }

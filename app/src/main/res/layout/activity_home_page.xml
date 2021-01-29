@@ -23,6 +23,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="360dp"
         android:background="#EC0101"
+        android:backgroundTint="#EC0101"
         android:padding="10sp"
         android:text="@string/Mark"
         android:textColor="#FFFFFF"
@@ -103,11 +104,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="-38dp"
-        android:entries="@array/places"
-        android:background="#FFFFFF" />
+        android:layout_marginStart="46dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF"
+        android:entries="@array/places" />
 
     <ImageView
         android:id="@+id/addloc"

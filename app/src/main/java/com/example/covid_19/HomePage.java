@@ -47,6 +47,12 @@ public class HomePage extends AppCompatActivity {
     TextView t1,t2;
     FusedLocationProviderClient fusedLocationProviderClient;
 
+    /*
+    * getIntent().getExtras().getString("firstName");
+    * getIntent().getExtras().getString("lastName");
+    * getIntent().getExtras().getString("Status");
+    * */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +61,7 @@ public class HomePage extends AppCompatActivity {
 
         mark = (Button) findViewById(R.id.mark);
         t1 = (TextView) findViewById(R.id.status);
+
         mark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

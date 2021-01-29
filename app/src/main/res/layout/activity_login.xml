@@ -60,7 +60,7 @@
         android:backgroundTint="#fff"
         android:ems="10"
         android:hint="Phone Number"
-        android:inputType="textEmailAddress"
+        android:inputType="numberSigned"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/LPassword"
         app:layout_constraintEnd_toEndOf="parent"

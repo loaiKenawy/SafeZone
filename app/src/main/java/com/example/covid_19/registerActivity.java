@@ -1,13 +1,12 @@
 package com.example.covid_19;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,6 +20,8 @@ public class registerActivity extends AppCompatActivity {
 
     DatabaseReference insertReference;
 
+    Intent intent ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class registerActivity extends AppCompatActivity {
             }
         });
     }
+
     public void register(){
         fName = findViewById(R.id.rFname);
         lName = findViewById(R.id.rLname);;
@@ -54,26 +56,30 @@ public class registerActivity extends AppCompatActivity {
         {
             rPassword.setError("Password filed is empty");
         }
-        else if(rvPassword.getText().toString().isEmpty()){
+        else if(rvPassword.getText().toString().isEmpty()) {
             rvPassword.setError("Verify password filed is empty");
         }
         else if(rage.getText().toString().isEmpty()){
             rage.setError("Age filed is empty");
         }
         else{
+
             String s1 , s2 , s3 , s4 , userID;
             int s5;
+
             s1 = fName.getText().toString();
             s2 = lName.getText().toString();
             s3 = rPhone.getText().toString();
             s4 = rPassword.getText().toString();
+            s5 = Integer.parseInt(rage.getText().toString());
             userID = s3;
-            s5 = 0;
 
-            user.Register(s1,s2,s3,s4,s5);
+            user.Register( s1 , s2 , s3 , s4 , s5 , false );
             insertReference = FirebaseDatabase.getInstance().getReference("User");
             insertReference.child(userID).setValue(user);
-            Toast.makeText(registerActivity.this,"Done",Toast.LENGTH_LONG).show();
+            Toast.makeText(registerActivity.this,"Account Created Successfully ",Toast.LENGTH_LONG).show();
+            intent = new Intent(registerActivity.this , loginActivity.class);
+            startActivity(intent);
         }
     }
 }
